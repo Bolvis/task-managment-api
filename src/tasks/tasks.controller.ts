@@ -34,8 +34,8 @@ export class TasksController {
     @Patch('/:id')
     async updateTask(
         @Param('id') id: string,
-        @Body() updateTaskDescriptionDto: updateTaskDto): Promise<Task> {
-        
-        return await this.taskService.updateTaskDescription(id, updateTaskDescriptionDto);
+        @Body() updateTaskDto: updateTaskDto): Promise<Task> {
+
+        return await this.taskService.updateTask(id, updateTaskDto);
     }
 }
