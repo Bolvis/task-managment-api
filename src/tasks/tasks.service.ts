@@ -59,20 +59,12 @@ export class TasksService {
         return this.tasks;
     }
 
-    updateTaskStatus(id: string, status: TaskStatus): Task {
-        const task = { ...this.getSingleTask(id), status: status };
-
-        this.deleteTask(id);
-        this.tasks.push(task)
-
-        return task;
-    }
-    updateTaskDescription(id: string, updateTask: updateTaskDto): Task {
+    updateTask(id: string, updateTask: updateTaskDto): Task {
         const task: Task = { ...this.getSingleTask(id) };
         const { title, description, status } = updateTask;
 
         this.deleteTask(id);
-        
+
         if (title) task.title = title
         if (description) task.description = description
         if (status) task.status = status
